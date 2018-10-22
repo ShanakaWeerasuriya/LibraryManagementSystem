@@ -1,0 +1,69 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Library.master.cs" Inherits="LibraryManagement.Library" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 179px;
+        }
+    </style>
+</head>
+<body>
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <div id="MainLogo">
+                            <img src="~/Images/SiteImages/vide.jpg" alt="MY HEADER IMAGE" runat="server" style='width: auto; height: 200px' />
+                        </div>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <div id="ToolBar">
+                            <asp:ContentPlaceHolder ID="ToolBar_PlaceHolder" runat="server">
+                                <h3>TOOL BAR GOES HERE</h3>
+                            </asp:ContentPlaceHolder>
+
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="navigated_path">
+                            <asp:ContentPlaceHolder ID="NavigatedPath_PlaceHolder" runat="server">
+                                <h2>navigated path</h2>
+                            </asp:ContentPlaceHolder>
+
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:ContentPlaceHolder ID="Body_PlaceHolder" runat="server">
+                            <h1>body</h1>
+                        </asp:ContentPlaceHolder>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                       
+                        <footer class="blockquote-footer ">
+                            <img src="~/Images/SiteImages/i-shot-him-footer.jpg" alt="MY HEADER IMAGE" runat="server" style='width: auto; height: 200px' />
+                        </footer>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+</body>
+<script src="js/bootstrap.min.js"></script>
+</html>
