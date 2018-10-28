@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
-    public class DataAccessLayer
+    public class DataAccess
     {
         #region Properties & Variable Declarations
         string connection = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
@@ -33,7 +33,7 @@ namespace DataAccessLayer
             set
             {
                 connection = value;
-            }      
+            }
         }
 
 
@@ -48,12 +48,12 @@ namespace DataAccessLayer
         /// <param name="spName"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        public int Execute_Insert(string spName,string tableName,List<string>fieldNames,object [] values)
+        public int Execute_Insert(string spName, string tableName, List<string> fieldNames, object[] values)
         {
-            
+
             try
             {
-                
+
                 con = new SqlConnection(connection);
                 cmd = new SqlCommand(spName);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -75,7 +75,7 @@ namespace DataAccessLayer
                     return result; //return true or false based on the submition
                 }
 
-                
+
             }
             catch (Exception ex)
             {
@@ -83,7 +83,7 @@ namespace DataAccessLayer
                 return 0;
             }
 
-           
+
         }
 
         /// <summary>
@@ -126,7 +126,7 @@ namespace DataAccessLayer
         /// <param name="parameters"></param>
         /// <param name="condition"></param>
         /// <returns></returns>
-        public  DataSet Execute_Select(string spName,string tableName,List<string> fieldNames,object [] values)
+        public DataSet Execute_Select(string spName, string tableName, List<string> fieldNames, object[] values)
         {
             try
             {
@@ -141,13 +141,13 @@ namespace DataAccessLayer
                 //Adding parameters
                 cmd.Parameters.Add(tableName);
                 cmd.Parameters.AddRange(values);
-               
+
                 foreach (var fields in fieldNames)
                 {
                     cmd.Parameters.Add(fields);
                 }
 
-               
+
 
 
                 using (con)
@@ -162,7 +162,7 @@ namespace DataAccessLayer
             {
 
                 throw;
-                
+
             }
         }
 
@@ -183,7 +183,7 @@ namespace DataAccessLayer
                 cmd = new SqlCommand(spName);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandTimeout = 300;
-                
+
 
 
                 //Adding parameters
@@ -202,10 +202,10 @@ namespace DataAccessLayer
                 {
                     int result = cmd.ExecuteNonQuery();
                     return result;
-                    
+
                 }
 
-              
+
 
             }
             catch (Exception)
@@ -223,12 +223,12 @@ namespace DataAccessLayer
         /// <param name="spName"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        public int Execute_Delete(string spName,string table, string FieldName,int value)
+        public int Execute_Delete(string spName, string table, string FieldName, int value)
         {
 
             try
             {
-                con = new SqlConnection(connection); 
+                con = new SqlConnection(connection);
                 cmd = new SqlCommand(spName);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandTimeout = 300;
@@ -237,7 +237,7 @@ namespace DataAccessLayer
                 cmd.Parameters.Add(table);
                 cmd.Parameters.Add(FieldName);
                 cmd.Parameters.Add(value);
-                
+
 
 
                 using (con)
@@ -251,11 +251,42 @@ namespace DataAccessLayer
 
                 return 0;
             }
-           
 
-            
+
+
         }
 
         #endregion
+
+        public bool Login(string username, string password)
+        {
+            try
+            {
+                using (con = new SqlConnection(connection))
+                {
+                    cmd = new SqlCommand("SPValidateUser", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+
+                    //Adding parameters
+
+
+                    SqlParameter ParamUserName = new SqlParameter("@userName", username);
+                    SqlParameter Parampassword = new SqlParameter("@password", password);
+                    cmd.Parameters.Add(ParamUserName);
+                    cmd.Parameters.Add(Parampassword);
+
+                    con.Open();
+                    int Result = (int)cmd.ExecuteScalar();
+                    return Result == 1 ? true : false;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+
+            }
+        }
     }
 }
