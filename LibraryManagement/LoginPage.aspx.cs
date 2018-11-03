@@ -9,16 +9,15 @@ using System.Web.UI.WebControls;
 
 namespace LibraryManagement
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class LoginPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
                 txtUserId.Focus();
-                txtPassword.Attributes["type"] ="password";
+                txtPassword.Attributes["type"] = "password";
             }
-            
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -28,18 +27,17 @@ namespace LibraryManagement
             user.Password = txtPassword.Text;
 
             DataAccess DAL = new DataAccess();
-           
+
             if (DAL.Login(user.UserName, user.Password))
             {
                 Response.Redirect("~/Home.aspx");
                 Session["UserName"] = user.UserName;
 
-            }else
+            }
+            else
             {
                 Response.Write("alert('Invalid Credentials');");
             }
-
         }
-
     }
 }

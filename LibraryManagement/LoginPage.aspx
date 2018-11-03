@@ -1,6 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Library.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="LibraryManagement.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoginPage.aspx.cs" Inherits="LibraryManagement.LoginPage" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <title>Login Page</title>
+
     <script type="text/javascript" src="Scripts/Validations.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <style type="text/css">
@@ -12,12 +18,15 @@
         }
     </style>
     
-</asp:Content>
-<asp:Content ID="Login" ContentPlaceHolderID="Body_PlaceHolder" runat="server">
-    
-
-                <form id="login" runat="server" method="post">
-                    <div  style="max-width:400px; margin:50px 20% 0px 20%; border:1px solid blue; padding:5px;background-color:darkgrey" >
+</head>
+   
+<body>
+     <div id="MainLogo" class="jumbotron" style="margin-bottom: 0px;">
+                        <h1>LIBRARY MANAGER </h1>
+                        <p>Read your world Easier...</p>
+                    </div>
+    <form id="form1" runat="server">
+   <div  style="max-width:400px; margin:50px 20% 0px 20%; border:1px solid blue; padding:5px;background-color:darkgrey" >
                         <h2 class="form-signin-heading">User Login</h2>
                         <label for="txtUserName">User Name</label>
                         <asp:TextBox ID="txtUserId" CssClass="form-control"   runat="server" onblur="GetAlert();" placeHolder="User Name" />
@@ -37,10 +46,6 @@
                     <div style="max-width:500px; margin:0px 20% 0px 20%; padding:5px">
                         <asp:Button ID="btnLogin" Text="Login" runat="server" CssClass="btn btn-primary" OnClick="btnLogin_Click"/>
                     </div>
-
-                </form>
-  
-    <script  src='<%= Page.ResolveClientUrl("~/Scripts/Validations.js") %>' type="text/javascript"></script> 
-</asp:Content>
-
-
+    </form>
+</body>
+</html>
