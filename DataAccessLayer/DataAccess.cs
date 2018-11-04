@@ -258,6 +258,8 @@ namespace DataAccessLayer
 
         #endregion
 
+
+        #region Login Section
         public bool Login(string username, string password)
         {
             try
@@ -288,5 +290,107 @@ namespace DataAccessLayer
 
             }
         }
+        #endregion
+
+
+        #region Reset User Password & Check Reset Password Link Validation
+
+        public void ResetPassword(string userName,out string Email,out string UniqueId)
+        {
+            try
+            {
+                string mail = "", id = "";
+                using(con = new SqlConnection(connection))
+                {
+                    cmd = new SqlCommand("spResetPassword", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    SqlParameter ParamUserName = new SqlParameter("@UserName", userName);
+                    cmd.Parameters.Add(ParamUserName);
+                    con.Open();
+
+                    SqlDataReader DR = cmd.ExecuteReader();
+
+                    while (DR.Read())
+                    {
+                        if (Convert.ToBoolean(DR["RetunCode"]))
+                        {
+                            id = DR["UniqueId"].ToString();
+                            mail = DR["Email"].ToString();
+                        }
+
+                        else
+                        {
+                            mail = null;
+                            id = null;
+                        }
+                    }
+
+                    Email = mail;
+                    UniqueId = id;
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        //public bool ValidateResetPasswordLInk(string UniqueId)
+        //{
+        //    try
+        //    {
+        //        using(con= new SqlConnection(connection))
+        //        {
+        //            cmd = new SqlCommand("spCheckUniqueIdValidity", con);
+        //            cmd.CommandType = CommandType.StoredProcedure;
+
+        //            SqlParameter param = new SqlParameter("@GUID", UniqueId);
+        //            cmd.Parameters.Add(param);
+
+        //            con.Open();
+
+        //          return(Convert.ToBoolean(cmd.ExecuteScalar()));
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        throw;
+        //    }
+        //}
+
+        public bool spExecuteWithReturnValue(string spName,List<SqlParameter> spParameters)
+        {
+            try
+            {
+                using (con = new SqlConnection(connection))
+                {
+                    cmd = new SqlCommand(spName, con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+
+                    foreach (SqlParameter parameter in spParameters)
+                    {
+                        cmd.Parameters.Add(parameter);
+                    }
+
+                    con.Open();
+
+                    return (Convert.ToBoolean(cmd.ExecuteScalar()));
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+        #endregion
+
     }
 }

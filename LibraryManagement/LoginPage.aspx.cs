@@ -26,13 +26,9 @@ namespace LibraryManagement
             user.UserName = txtUserId.Text;
             user.Password = txtPassword.Text;
 
-            DataAccess DAL = new DataAccess();
-
-            if (DAL.Login(user.UserName, user.Password))
-            {
+            if(user.UserLogin()){
                 Response.Redirect("~/Home.aspx");
                 Session["UserName"] = user.UserName;
-
             }
             else
             {

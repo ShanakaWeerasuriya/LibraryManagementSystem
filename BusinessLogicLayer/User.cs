@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccessLayer;
+using BusinessLogicLayer;
 
 namespace BusinessLogicLayer
 {
@@ -25,6 +27,22 @@ namespace BusinessLogicLayer
         }
 
 
+
+
+        public bool UserLogin()
+        {
+            DataAccess DAL = new DataAccess();
+
+            if (DAL.Login(UserName,Password))
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+        }
 
 
     }
