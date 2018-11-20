@@ -17,27 +17,22 @@
     </style>
 </head>
 <body>
+    <div id="MainLogo" class="jumbotron" style="margin-bottom: 0px;">
+                        <h4>SMART CABS </h4>
+                        <p>YOUR JOURNEY IS OUR JOB</p>
+                    </div>
     <div>
         <table>
-            <tr>
-                <td>
-                    <div id="MainLogo" class="jumbotron" style="margin-bottom: 0px;">
-                        <h1>LIBRARY MANAGER </h1>
-                        <p>Read your world Easier...</p>
-                    </div>
-                </td>
-
-            </tr>
+            
             <tr>
                 <td>
                     <div id="ToolBar">
                         <nav class="navbar navbar-expand-md navbar-light bg-light">
                             <ul class="navbar-nav nav flex-column">
                                 <li class="nav-item dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target ">
-                                    DROPDOWN
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target ">DROPDOWN
                                     <span class="caret"></span>
-                                </a>
+                                    </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdown_target">
                                         <a class="dropdown-item">PHP VIDEOS</a>
                                         <div class="dropdown-divider"></div>

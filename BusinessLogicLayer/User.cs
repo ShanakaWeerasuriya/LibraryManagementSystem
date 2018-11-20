@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccessLayer;
 using BusinessLogicLayer;
+using System.Data.SqlClient;
 
 namespace BusinessLogicLayer
 {
@@ -33,15 +34,22 @@ namespace BusinessLogicLayer
         {
             DataAccess DAL = new DataAccess();
 
-            if (DAL.Login(UserName,Password))
+            List<SqlParameter> parameters = new List<SqlParameter>()
             {
-                return true;
+                new SqlParameter()
+                {
+                    ParameterName="@userName",
+                    Value = userName
+                },
 
-            }
-            else
-            {
-                return false;
-            }
+                new SqlParameter()
+                {
+                    ParameterName="@password",
+                    Value=password
+                }
+            };
+
+           return DAL.spExecuteWithReturnValue("SPValidateUser", parameters);
         }
 
 

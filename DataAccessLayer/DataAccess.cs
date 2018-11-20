@@ -13,7 +13,7 @@ namespace DataAccessLayer
     public class DataAccess
     {
         #region Properties & Variable Declarations
-        string connection = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
+        private string connection = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
         SqlConnection con;
         SqlCommand cmd;
         SqlDataAdapter da;
@@ -259,41 +259,7 @@ namespace DataAccessLayer
         #endregion
 
 
-        #region Login Section
-        public bool Login(string username, string password)
-        {
-            try
-            {
-                using (con = new SqlConnection(connection))
-                {
-                    cmd = new SqlCommand("SPValidateUser", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-
-                    //Adding parameters
-
-
-                    SqlParameter ParamUserName = new SqlParameter("@userName", username);
-                    SqlParameter Parampassword = new SqlParameter("@password", password);
-                    cmd.Parameters.Add(ParamUserName);
-                    cmd.Parameters.Add(Parampassword);
-
-                    con.Open();
-                    int Result = (int)cmd.ExecuteScalar();
-                    return Result == 1 ? true : false;
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-
-            }
-        }
-        #endregion
-
-
-        #region Reset User Password & Check Reset Password Link Validation
+        #region Login/Reset User Password/Check Reset Password Link Validation
 
         public void ResetPassword(string userName,out string Email,out string UniqueId)
         {
@@ -338,30 +304,6 @@ namespace DataAccessLayer
             }
         }
 
-
-        //public bool ValidateResetPasswordLInk(string UniqueId)
-        //{
-        //    try
-        //    {
-        //        using(con= new SqlConnection(connection))
-        //        {
-        //            cmd = new SqlCommand("spCheckUniqueIdValidity", con);
-        //            cmd.CommandType = CommandType.StoredProcedure;
-
-        //            SqlParameter param = new SqlParameter("@GUID", UniqueId);
-        //            cmd.Parameters.Add(param);
-
-        //            con.Open();
-
-        //          return(Convert.ToBoolean(cmd.ExecuteScalar()));
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-        //}
 
         public bool spExecuteWithReturnValue(string spName,List<SqlParameter> spParameters)
         {

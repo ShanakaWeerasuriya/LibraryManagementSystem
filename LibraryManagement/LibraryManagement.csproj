@@ -103,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Registration\ChangePassword.aspx" />
+    <Content Include="Registration\CreateNewUsers.aspx" />
     <Content Include="Registration\ResetPassword.aspx" />
     <Content Include="Scripts\Validations.js" />
     <Content Include="Web.config">
@@ -138,6 +139,13 @@
     </Compile>
     <Compile Include="Registration\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registration\CreateNewUsers.aspx.cs">
+      <DependentUpon>CreateNewUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registration\CreateNewUsers.aspx.designer.cs">
+      <DependentUpon>CreateNewUsers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registration\ResetPassword.aspx.cs">
       <DependentUpon>ResetPassword.aspx</DependentUpon>
