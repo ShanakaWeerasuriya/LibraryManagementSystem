@@ -16,7 +16,7 @@
     <form id="form1" runat="server">
         <div style="max-width: 400px; margin: 50px 20% 0px 20%; border: 1px solid blue; padding: 5px; background-color: rgba(3, 169, 244, 0.1)">
             <div class="rounded mb-0" style="background-color: darkgrey; padding-left: 0px">
-                <h2 class="form-signin-heading">Change Password</h2>
+                <h2 class="form-signin-heading">Change Password/>
             </div>
             <label for="txtNewPassword">New Password</label>
             <asp:TextBox ID="txtNewPassword" CssClass="form-control" runat="server" onblur="GetAlert();" placeHolder="New Password" />
