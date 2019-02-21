@@ -10,7 +10,7 @@
 namespace LibraryManagement {
     
     
-    public partial class Library {
+    public partial class Main {
         
         /// <summary>
         /// head control.
@@ -22,21 +22,21 @@ namespace LibraryManagement {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
         
         /// <summary>
-        /// NavigatedPath_PlaceHolder control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder NavigatedPath_PlaceHolder;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Body_PlaceHolder control.
+        /// body control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder Body_PlaceHolder;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder body;
     }
 }

@@ -15,7 +15,7 @@ namespace LibraryManagement
         {
             if (!Page.IsPostBack)
             {
-                txtUserId.Focus();
+                //txtUserId.Focus();
                 txtPassword.Attributes["type"] = "password";
             }
         }

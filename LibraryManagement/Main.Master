@@ -1,0 +1,57 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="LibraryManagement.Main" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="CustomCSS/Menue.css" rel="stylesheet" />
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="HeaderRibon">
+        <div id="Logo">
+
+        </div>
+        <div id="UserName">
+
+        </div>
+        <div id="LogOut">
+
+        </div>
+    </div>
+    
+        <div id="Menu" class="SideBar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
+            </ul>
+            <button class="ToggleButton">
+                <span></span>
+            </button>
+        </div>
+
+
+    <div id="Body">
+        <asp:ContentPlaceHolder ID="body" runat="server">
+
+        </asp:ContentPlaceHolder>
+    </div>
+
+    <div id="Footer">
+
+    </div>
+
+    </form>
+    <script src="Scripts/UI.js"></script>
+</body>
+</html>
