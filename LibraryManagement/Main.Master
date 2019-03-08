@@ -8,7 +8,7 @@
                  <link href="CustomCSS/Menue.css" rel="stylesheet"  type="text/css"/>
                  <link href="CustomCSS/MainPage.css" rel="stylesheet" />
         </asp:ContentPlaceHolder>
-    <title></title>
+    <title>MAIN</title>
     <script src="js/jquery-3.3.1.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
