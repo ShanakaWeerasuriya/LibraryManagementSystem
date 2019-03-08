@@ -140,13 +140,17 @@ namespace DataAccessLayer
 
                 //Adding parameters
                 cmd.Parameters.Add(tableName);
-                cmd.Parameters.AddRange(values);
+               
 
                 foreach (var fields in fieldNames)
                 {
                     cmd.Parameters.Add(fields);
                 }
 
+                foreach (var vals in values)
+                {
+                    cmd.Parameters.Add(vals);
+                }
 
 
 
@@ -305,7 +309,7 @@ namespace DataAccessLayer
         }
 
 
-        public bool spExecuteWithReturnValue(string spName,List<SqlParameter> spParameters)
+        public bool spExecuteWithReturnValues(string spName,List<SqlParameter> spParameters)
         {
             try
             {
@@ -321,8 +325,8 @@ namespace DataAccessLayer
                     }
 
                     con.Open();
-
-                    return (Convert.ToBoolean(cmd.ExecuteScalar()));
+                    return (Convert.ToBoolean(cmd.ExecuteNonQuery()));
+                    
                 }
             }
             catch (Exception)
@@ -331,6 +335,33 @@ namespace DataAccessLayer
                 throw;
             }
 
+        }
+
+        public int SelectUserType(string spName, List<SqlParameter> spParameters)
+        {
+            try
+            {
+                using (con = new SqlConnection(connection))
+                {
+                    cmd = new SqlCommand(spName, con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+
+                    foreach (SqlParameter parameter in spParameters)
+                    {
+                        cmd.Parameters.Add(parameter);
+                    }
+
+                    con.Open();
+                    return cmd.ExecuteNonQuery();
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         #endregion
 

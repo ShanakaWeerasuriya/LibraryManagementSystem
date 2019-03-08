@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -72,7 +73,9 @@
     <Content Include="css\bootstrap-reboot.min.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="CustomCSS\MainPage.css" />
     <Content Include="CustomCSS\Menue.css" />
+    <Content Include="Images\SiteImages\9464_library_logo.png" />
     <Content Include="Images\SiteImages\i-shot-him-footer.jpg" />
     <Content Include="Images\SiteImages\vide.jpg" />
     <Content Include="jqueryui\AUTHORS.txt" />

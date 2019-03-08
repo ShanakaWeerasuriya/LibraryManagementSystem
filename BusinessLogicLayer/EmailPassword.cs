@@ -54,7 +54,7 @@ namespace BusinessLogicLayer
             smtpClient.Credentials = new NetworkCredential()
             {
                 UserName="shanakadesilva46@gmail.com",
-                Password= "VivekaKrishna"
+                Password= "HimaTery@1992"
             };
 
 
@@ -78,7 +78,7 @@ namespace BusinessLogicLayer
                 }
             };
 
-           return DAl.spExecuteWithReturnValue("spCheckUniqueIdValidity",paramList);
+           return DAl.spExecuteWithReturnValues("spCheckUniqueIdValidity",paramList);
         }
 
         public bool  IsPasswordChanged(string uniquId,string Password)
@@ -101,7 +101,7 @@ namespace BusinessLogicLayer
                 
             };
 
-            return DAl.spExecuteWithReturnValue("spChangePassword", paramList);
+            return DAl.spExecuteWithReturnValues("spChangePassword", paramList);
         }
 
 

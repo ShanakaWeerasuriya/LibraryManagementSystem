@@ -14,6 +14,9 @@ namespace BusinessLogicLayer
 
         private string userName;
         private string password;
+        private int userTypeId;
+
+      
 
         public string UserName
         {
@@ -25,6 +28,12 @@ namespace BusinessLogicLayer
         {
             get { return password; }
             set { password = value; }
+        }
+
+        public int UserTypeID
+        {
+            get { return userTypeId; }
+            set { userTypeId = value; }
         }
 
 
@@ -39,19 +48,41 @@ namespace BusinessLogicLayer
                 new SqlParameter()
                 {
                     ParameterName="@userName",
-                    Value = userName
+                    Value = userName,
                 },
 
                 new SqlParameter()
                 {
                     ParameterName="@password",
                     Value=password
-                }
+                },
             };
 
-           return DAL.spExecuteWithReturnValue("SPValidateUser", parameters);
+           return DAL.spExecuteWithReturnValues("SPValidateUser", parameters);
         }
 
+        public int UserType()
+        {
+            DataAccess DAL = new DataAccess();
+
+            List<SqlParameter> parameters = new List<SqlParameter>()
+            {
+                new SqlParameter()
+                {
+                    ParameterName="@userName",
+                    Value = userName,
+                },
+
+                new SqlParameter()
+                {
+                    ParameterName="@password",
+                    Value=password
+                },
+            };
+
+            return DAL.SelectUserType("SPValidateUserType", parameters);
+
+        }
 
     }
 }

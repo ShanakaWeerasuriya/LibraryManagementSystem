@@ -1,11 +1,6 @@
 ﻿using BusinessLogicLayer;
-using DataAccessLayer;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace LibraryManagement
 {
@@ -15,8 +10,8 @@ namespace LibraryManagement
         {
             if (!Page.IsPostBack)
             {
-                //txtUserId.Focus();
-                txtPassword.Attributes["type"] = "password";
+                
+                //txtPassword.Attributes["type"] = "password";
             }
         }
 
@@ -26,13 +21,34 @@ namespace LibraryManagement
             user.UserName = txtUserId.Text;
             user.Password = txtPassword.Text;
 
-            if(user.UserLogin()){
-                Response.Redirect("~/Home.aspx");
-                Session["UserName"] = user.UserName;
+            if (!user.UserLogin())
+            {
+                Response.Write("alert('Invalid Credentials');");
             }
             else
             {
-                Response.Write("alert('Invalid Credentials');");
+                Session["UserName"] = user.UserName;
+                int userType = user.UserType();
+                switch (userType)
+                {
+                    case 1:
+                        Session["UserType"] = "Admin";
+                       
+                        break;
+
+                    case 2:
+                        Session["UserType"]= "Librarian";
+                        break;
+
+                    case 3:
+                        Session["UserType"] = "Member";
+                        break;
+
+                    default:
+                        Response.Write("alert('Invalid User Authentication.Please Contact Administrator')");
+                        break;
+                }
+                Response.Redirect("~/HomePage.aspx");
             }
         }
     }

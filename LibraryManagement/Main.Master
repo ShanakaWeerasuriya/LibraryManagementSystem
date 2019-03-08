@@ -4,23 +4,27 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+        <asp:ContentPlaceHolder ID="stylesheet" runat="server">
+                 <link href="CustomCSS/Menue.css" rel="stylesheet"  type="text/css"/>
+                 <link href="CustomCSS/MainPage.css" rel="stylesheet" />
+        </asp:ContentPlaceHolder>
     <title></title>
-    <link href="CustomCSS/Menue.css" rel="stylesheet" />
     <script src="js/jquery-3.3.1.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
+
     <form id="form1" runat="server">
     <div id="HeaderRibon">
         <div id="Logo">
-
+            <img src="Images/SiteImages/9464_library_logo.png" style="width:250px;" />
         </div>
         <div id="UserName">
-
+                   <asp:Label runat="server">WELCOME :</asp:Label>
         </div>
         <div id="LogOut">
-
+            <a href="LoginPage.aspx">LOGOUT</a>
         </div>
     </div>
     
