@@ -73,8 +73,6 @@
     <Content Include="css\bootstrap-reboot.min.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
-    <Content Include="CustomCSS\MainPage.css" />
-    <Content Include="CustomCSS\Menue.css" />
     <Content Include="Images\SiteImages\9464_library_logo.png" />
     <Content Include="Images\SiteImages\i-shot-him-footer.jpg" />
     <Content Include="Images\SiteImages\vide.jpg" />
@@ -121,8 +119,7 @@
     <Content Include="Registration\ChangePassword.aspx" />
     <Content Include="Registration\CreateNewUsers.aspx" />
     <Content Include="Registration\ResetPassword.aspx" />
-    <Content Include="Scripts\Animation.js" />
-    <Content Include="Scripts\UI.js" />
+    <Content Include="Scripts\MainMenue.js" />
     <Content Include="Scripts\Validation.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -184,6 +181,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="CustomCSS\" />
     <Folder Include="Images\BookImages\" />
     <Folder Include="Inventory\" />
     <Folder Include="jqueryui\external\" />
