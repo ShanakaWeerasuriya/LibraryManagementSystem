@@ -3,166 +3,129 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
     <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        .navbar {
-            overflow: hidden;
-            background-color: #333;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-            .navbar a {
-                float: left;
-                font-size: 16px;
-                color: white;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-            }
-
-        .dropdown {
-            float: left;
-            overflow: hidden;
-        }
-
-            .dropdown .dropbtn {
-                cursor: pointer;
-                font-size: 16px;
-                border: none;
-                outline: none;
-                color: white;
-                padding: 14px 16px;
-                background-color: inherit;
-                font-family: inherit;
-                margin: 0;
-            }
-
-            .navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
-                background-color: red;
-            }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-            .dropdown-content a {
-                float: none;
-                color: black;
-                padding: 12px 16px;
-                text-decoration: none;
-                display: block;
-                text-align: left;
-            }
-
-                .dropdown-content a:hover {
-                    background-color: #ddd;
-                }
-
-        .show {
-            display: block;
-        }
-    </style>
 </head>
 <body>
 
-    <div class="navbar">
-        <a href="#home">Home</a>
-        <div class="dropdown">
-
-            <button class="dropbtn" onclick="bookFunction()">
-                Books
-                <i class="fa fa-caret-down"></i>
-            </button>
-
-            <div class="dropdown-content" id="bookDropdown">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-            </div>
+    <!--Navbar -->
+<nav class="navbar navbar-dark navbar-expand-lg bg-primary">
+  <a class="navbar-brand" href="#">Libraray Manager</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+    aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="BooksDropdown" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">Books
+        </a>
+        <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
         </div>
-        <div class="dropdown">
-            <button class="dropbtn" onclick="MemberFunction()" id="MemberDropButton">
-                Members
-                <i class="fa fa-caret-down"></i>
-            </button>
+      </li>
 
-            <div class="dropdown-content" id="MembersDropdown">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <button class="dropbtn" onclick="PaymentsFunction()">
-                    Payments
-                <i class="fa fa-caret-down"></i>
-                </button>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="MembersDropdown" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">Members
+        </a>
+        <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="PaymentsDropdown" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">Payments
+        </a>
+        <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
 
-                <div class="dropdown-content" id="PaymentsDropdown">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-            </div>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="SuppliersDropdown" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">Suppliers
+        </a>
+        <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
 
-            <div class="dropdown">
-                <button class="dropbtn" onclick="SupliersFunction()">
-                    Suppliers
-                <i class="fa fa-caret-down"></i>
-                </button>
+         <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="ReportsDropdown" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">Reports
+        </a>
+        <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
 
-                <div class="dropdown-content" id="SupliersDropdown">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-            </div>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="AdminDropdown" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">Admin
+        </a>
+        <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
 
-        <div class="dropdown">
-                <button class="dropbtn" onclick="ReportsFunction()">
-                    Reports
-                <i class="fa fa-caret-down"></i>
-                </button>
+        <li class="nav-item">
+        <a class="nav-link" href="#">About us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact us</a>
+      </li>
 
-                <div class="dropdown-content" id="ReportsDropdown">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-            </div>
+    </ul>
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+      <li class="nav-item">
+        <a class="nav-link waves-effect waves-light">1
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      <li class="nav-item avatar dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0" alt="avatar image" style="width:50px;height:50px;">
+        </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--/.Navbar -->
+    <asp:ContentPlaceHolder ID="head" runat="server">
 
-        <div class="dropdown">
-                <button class="dropbtn" onclick="AdminFunction()">
-                    Admin
-                <i class="fa fa-caret-down"></i>
-                </button>
+    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="body" runat="server">
 
-                <div class="dropdown-content" id="AdminDropdown">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-            </div>
-        <a href="#home">About Us</a>
-        <a href="#home">Contact Us</a>
+    </asp:ContentPlaceHolder>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
        
-       </div>
-        <h3>Dropdown Menu inside a Navigation Bar</h3>
-        <p>Click on the "Dropdown" link to see the dropdown menu.</p>
-
-        <asp:ContentPlaceHolder ID="head" runat="server">
-        </asp:ContentPlaceHolder>
-
-        <asp:ContentPlaceHolder ID="body" runat="server">
-        </asp:ContentPlaceHolder>
-
-        <script src="Scripts/MainMenue.js" type="text/javascript"></script>
 </body>
 </html>
