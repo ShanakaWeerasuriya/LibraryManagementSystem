@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link href="CustomCSS/Custom%20Sheet.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <title></title>
 </head>
@@ -121,6 +122,19 @@
 
     </asp:ContentPlaceHolder>
     <asp:ContentPlaceHolder ID="body" runat="server">
+
+    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="footer" runat="server">
+        <footer class="page-footer font-small blue">
+
+  <!-- Copyright -->
+  <div ID="myfooter" class="footer-copyright text-center py-3 position-fixed">© 2018 Copyright:
+    <a href="#"> Library Manger</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
 
     </asp:ContentPlaceHolder>
 
