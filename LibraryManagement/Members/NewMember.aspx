@@ -8,46 +8,48 @@
     <br />
     <div class="card ml-md-4 mb-4 w-25">
          <h5 class="card-header  bg-info white-text text-center py-3" id="CardHeader">
-            <strong>Registration</strong>
+            <strong>Member Registration</strong>
         </h5>
         <div class="card-body px-lg-5 pt-0" id="MyForm">
             <form class="md-form" style="color: #757575;">
                 <br/>
                 <label for="txtFirstName">First name</label>
-                <input type="text" id="txtFirstName" class="form-control">
+                <input type="text" id="txtFirstName" class="form-control" name="firstname">
                 
                 <label for="txtLastName">Last name</label>
-                <input type="text" id="txtLastName" class="form-control">
+                <input type="text" id="txtLastName" class="form-control" name="lastname">
                 
-
                 <label for="txtAge">Age</label>
-                <input type="text" id="txtAge" class="form-control" placeholder="">
+                <input type="text" id="txtAge" class="form-control" placeholder="" name="age">
 
                 <label for="txtAddress">Address</label>
-                <input type="text" id="txtAddress" class="form-control" placeholder="">
+                <input type="text" id="txtAddress" class="form-control" placeholder="" name="address">
 
                 <label for="txtEmail">E-mail</label>
-                <input type="email" id="txtEmail" class="form-control">
+                <input type="email" id="txtEmail" class="form-control" name="email">
+
+                <label for="txUserName">User Name</label>
+                <input type="text" id="txUserName" class="form-control" name="username">
                
                 <label for="txtPassword">Password</label>
-                <input type="password" id="txtPassword" class="form-control" aria-describedby="PasswordHelpBlock">
+                <input type="password" id="txtPassword" class="form-control" aria-describedby="PasswordHelpBlock" name="password">
                 <small id="PasswordHelpBlock" class="form-text  text-danger mb-2 text-danger">**At least 8 characters and 1 digit
                 </small>
                 
                 <label for="txtpasswordConfirm">Confirm Password</label>
-                <input type="password" id="txtpasswordConfirm" class="form-control" placeholder="" aria-describedby="PasswordConfirmHelpBlock">
+                <input type="password" id="txtpasswordConfirm" class="form-control" placeholder="" aria-describedby="PasswordConfirmHelpBlock" name="confirmpassword">
                 <small id="PasswordConfirmHelpBlock" class="form-text text-danger mb-2">**At least 8 characters and 1 digit
                 </small>
 
                 <label for="txtMobile">Mobile number</label>
-                <input type="text" id="txtMobile" class="form-control">
+                <input type="text" id="txtMobile" class="form-control" name="mobilenumber">
                
                 <div class="form-check mb-1">
-                    <input type="radio" class="form-check-input" id="radiobtnMale" name="defaultName">
+                    <input type="radio" class="form-check-input" id="radiobtnMale" name="Gender" >
                     <label class="form-check-label" for="radiobtn">Male</label>
                 </div>
                 <div class="form-check mb-1">
-                    <input type="radio" class="form-check-input" id="radiobtnFemale" name="defaultName">
+                    <input type="radio" class="form-check-input" id="radiobtnFemale" name="Gender">
                     <label class="form-check-label" for="radiobtn">Female</label>
                 </div>
 

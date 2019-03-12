@@ -1,25 +1,34 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NewLibrarian.aspx.cs" Inherits="LibraryManagement.Librarian.NewLibrarian" MasterPageFile="~/Main.Master" %>
 
 <asp:Content ContentPlaceHolderID="head" runat="server">
+    
     <link href="../CustomCSS/Custom%20Sheet.css" rel="stylesheet" />
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    
+    
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+    <script src="http://ajax.microsoft.com/ajax/jquery.validate/1.11.1/additional-methods.js"></script>
+    <script src="../Scripts/Validation.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+     
 </asp:Content>
 <asp:Content ID="NewMember" ContentPlaceHolderID="body" runat="server">
     <br />
     <div class="card ml-md-4 mb-4 w-25" >
          <h5 class="card-header  bg-info white-text text-center py-3"  id="CardHeader">
-            <strong>Registration</strong>
+            <strong>Librarian Registration</strong>
         </h5>
         <div class="card-body px-lg-5 pt-0" id="MyForm">
-            <form class="md-form" style="color: #757575;">
+            <form name="NewLibrarian" id="NewLibrarian" class="md-form" style="color: #757575;" method="post" action="#">
                 <br/>
-                <label for="txtFirstName">First name</label>
+                <label for="txtFirstName">First Name</label>+
                 <input type="text" id="txtFirstName" class="form-control">
                 
-                <label for="txtLastName">Last name</label>
+                <label for="txtLastName">Last Name</label>
                 <input type="text" id="txtLastName" class="form-control">
                 
-
                 <label for="txtAge">Age</label>
                 <input type="text" id="txtAge" class="form-control" placeholder="">
 
@@ -27,8 +36,11 @@
                 <input type="text" id="txtAddress" class="form-control" placeholder="">
 
                 <label for="txtEmail">E-mail</label>
-                <input type="email" id="txtEmail" class="form-control">
-               
+                <input name="email" type="email"id="txtEmail" class="form-control">
+
+                <label for="txUserName">User Name</label>
+                <input type="text" id="txUserName" class="form-control">
+
                 <label for="txtPassword">Password</label>
                 <input type="password" id="txtPassword" class="form-control" aria-describedby="PasswordHelpBlock">
                 <small id="PasswordHelpBlock" class="form-text  text-danger mb-2 text-danger">**At least 8 characters and 1 digit
@@ -62,7 +74,7 @@
         </div>
     </div>
     <br />
-    <script src="../js/jquery-3.3.1.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    
+    
     <br />
 </asp:Content>
